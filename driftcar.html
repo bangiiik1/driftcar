@@ -109,37 +109,6 @@ body {
 			<progress id="status-progress"></progress>
 			<div id="status-notice"></div>
 		</div>
-<script>
-(function() {
-    // Флаг, чтобы запомнить, что полноэкранный режим уже был запрошен
-    var fullscreenRequested = false;
-
-    function requestFullscreen() {
-        if (fullscreenRequested) return;
-        
-        var docEl = document.documentElement;
-        var requestMethod = docEl.requestFullscreen ||
-                            docEl.webkitRequestFullscreen ||
-                            docEl.msRequestFullscreen;
-        
-        if (requestMethod) {
-            requestMethod.call(docEl);
-            fullscreenRequested = true;
-            console.log("Полноэкранный режим активирован");
-        }
-    }
-
-    // Первое касание в любом месте страницы
-    document.addEventListener('touchstart', function() {
-        requestFullscreen();
-    }, { once: true, passive: true });  // once: true — сработает только один раз
-
-    // Для мыши (на случай отладки на ПК)
-    document.addEventListener('click', function() {
-        requestFullscreen();
-    }, { once: true });
-})();
-</script>
 		<script src="driftcar.js"></script>
 		<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"driftcar","experimentalVK":false,"fileSizes":{"driftcar.pck":111728,"driftcar.wasm":52126319},"focusCanvas":true,"gdextensionLibs":[],"serviceWorker":"driftcar.service.worker.js"};
